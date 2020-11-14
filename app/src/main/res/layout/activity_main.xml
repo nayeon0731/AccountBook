@@ -1,31 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="229dp"
-        android:layout_height="60dp"
-        android:text="Hello World!"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <FrameLayout
+        android:id="@+id/frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="229dp"
-        android:layout_height="60dp"
-        android:text="Hello World!"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.657" />
+    </FrameLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true">
+
+        <Button
+            android:id="@+id/btn_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/edge"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:text="리스트"
+            android:textColor="@color/black"
+            app:backgroundTint="@color/cardview_shadow_end_color"
+            app:elevation="0dp" />
+
+        <Button
+            android:id="@+id/btn_home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/edge"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:text="홈"
+            android:textColor="@color/black"
+            app:backgroundTint="@color/cardview_shadow_end_color"
+            app:elevation="0dp" />
+
+        <Button
+            android:id="@+id/btn_asset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/edge"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:text="자산"
+            android:textColor="@color/black"
+            app:backgroundTint="@color/cardview_shadow_end_color"
+            app:elevation="0dp" />
+
+    </LinearLayout>
+
+</RelativeLayout>
