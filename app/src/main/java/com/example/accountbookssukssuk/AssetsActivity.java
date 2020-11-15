@@ -4,10 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 
 import com.example.accountbookssukssuk.total.TotalAdapter;
 import com.example.accountbookssukssuk.total.TotalDB;
@@ -21,6 +23,7 @@ public class AssetsActivity extends AppCompatActivity {
     EditText mainCategory, subCategory, price;
     Button btAdd;
     RecyclerView recyclerView;
+    ImageView back1;
 
     List<TotalData> total_dataList = new ArrayList<>();
     LinearLayoutManager linearLayoutManager;
@@ -38,6 +41,7 @@ public class AssetsActivity extends AppCompatActivity {
         price = findViewById(R.id.price_text);
         btAdd = findViewById(R.id.add_btn);
         recyclerView = findViewById(R.id.recycler_view);
+        back1 = findViewById(R.id.back1);
 
         //Initialize database
         total_database = TotalDB.getInstance(this);
@@ -79,6 +83,14 @@ public class AssetsActivity extends AppCompatActivity {
                 total_dataList.addAll(total_database.totalDao().getAll());
                 total_adapter.notifyDataSetChanged();
 
+            }
+        });
+
+        back1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(AssetsActivity.this,Fragmenta.class));
+                finish();
             }
         });
     }
