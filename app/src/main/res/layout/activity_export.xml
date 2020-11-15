@@ -50,9 +50,11 @@
             android:layout_width="160dp"
             android:layout_height="wrap_content"
             android:text="수입"
+            android:onClick="go_import"
             android:textColor="@color/white"
             android:background="@drawable/button_bg"
-            android:layout_marginRight="20dp"/>
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="5dp"/>
 
         <Button
             android:id="@+id/btn_expenditure"
@@ -61,6 +63,7 @@
             android:text="지출"
             android:textColor="@color/white"
             android:layout_marginLeft="20dp"
+            android:layout_marginRight="5dp"
             android:background="@drawable/button_bg2"/>
 
 

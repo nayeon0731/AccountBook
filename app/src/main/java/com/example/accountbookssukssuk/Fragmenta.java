@@ -15,7 +15,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class Fragmenta extends Fragment {
 
-    FloatingActionButton fab1;
+    FloatingActionButton fab2;
 
 
     @Nullable
@@ -23,8 +23,8 @@ public class Fragmenta extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragmenta, container, false);
 
-        fab1 = (FloatingActionButton) view.findViewById(R.id.Floating_btn2);
-        fab1.setOnClickListener(new View.OnClickListener() {
+        fab2 = (FloatingActionButton) view.findViewById(R.id.Floating_btn2);
+        fab2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getActivity(), AssetsActivity.class));
