@@ -48,23 +48,23 @@
         <Button
             android:id="@+id/btn_income"
             android:layout_width="160dp"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
             android:text="수입"
             android:textColor="@color/white"
-            android:background="@drawable/button_bg"
+            android:backgroundTint="@color/main_toolbar"
             android:layout_marginRight="20dp"
             android:layout_marginLeft="5dp"/>
 
         <Button
             android:id="@+id/btn_expenditure"
             android:layout_width="160dp"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
             android:text="지출"
             android:onClick="export"
-            android:textColor="@color/white"
+            android:backgroundTint="#ccc"
+            android:textColor="@color/black"
             android:layout_marginLeft="20dp"
-            android:layout_marginRight="5dp"
-            android:background="@drawable/button_bg2"/>
+            android:layout_marginRight="5dp"/>
 
 
 
