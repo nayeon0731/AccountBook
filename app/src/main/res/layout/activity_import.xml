@@ -1,179 +1,178 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ImportActivity">
+    tools:context=".ImportActivity"
+    android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/importText"
-        android:layout_width="414dp"
-        android:layout_height="60dp"
-        android:gravity="center"
-        android:text="입력"
-        android:textAlignment="center"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/toolbar"
+        android:background="@color/main_toolbar">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_arrow"
+            android:id="@+id/back2"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="수입 입력"
+                android:textSize="20dp"
+                android:textColor="@color/white"
+                android:textStyle="bold"/>
+
+        </LinearLayout>
+    </androidx.appcompat.widget.Toolbar>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/btn_income"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:text="수입"
+            android:textColor="@color/white"
+            android:background="@drawable/button_bg"
+            android:layout_marginRight="20dp"/>
+
+        <Button
+            android:id="@+id/btn_expenditure"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:text="지출"
+            android:textColor="@color/white"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/button_bg2"/>
+
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="10dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="날짜 : "
+            android:layout_marginLeft="20dp"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/income_date"
+            android:layout_marginRight="20dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="항목 : "
+            android:layout_marginLeft="20dp"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/income_main"
+            android:layout_marginRight="20dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="분류 : "
+            android:layout_marginLeft="20dp"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/income_sub"
+            android:layout_marginRight="20dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="금액 : "
+            android:layout_marginLeft="20dp"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/income_price"
+            android:layout_marginRight="20dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="내용 : "
+            android:layout_marginLeft="20dp"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/income_comment"
+            android:layout_marginRight="20dp"/>
+    </LinearLayout>
 
     <Button
-        android:id="@+id/btn_income"
-        android:layout_width="157dp"
-        android:layout_height="45dp"
-        android:backgroundTint="@color/main_toolbar"
-        android:text="수입"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.133"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.125" />
-
-    <Button
-        android:id="@+id/btn_expenditure"
-        android:layout_width="157dp"
-        android:layout_height="45dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/add_btn3"
         android:background="@drawable/button_bg"
-        android:text="지출"
-        android:textColor="@color/black"
-        app:backgroundTint="#000000"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.877"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.125" />
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:text="저장"/>
 
-    <TextView
-        android:id="@+id/dateView"
-        android:layout_width="89dp"
-        android:layout_height="32dp"
-        android:layout_marginTop="60dp"
-        android:gravity="center"
-        android:text="날짜"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.139"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_income" />
 
-    <TextView
-        android:id="@+id/itemView"
-        android:layout_width="89dp"
-        android:layout_height="32dp"
-        android:layout_marginTop="36dp"
-        android:gravity="center"
-        android:text="항목"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.139"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dateView" />
-
-    <TextView
-        android:id="@+id/categoryView"
-        android:layout_width="89dp"
-        android:layout_height="32dp"
-        android:layout_marginTop="36dp"
-        android:gravity="center"
-        android:text="분류"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.139"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/itemView" />
-
-    <TextView
-        android:id="@+id/priceView"
-        android:layout_width="89dp"
-        android:layout_height="32dp"
-        android:layout_marginTop="36dp"
-        android:gravity="center"
-        android:text="금액"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.139"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/categoryView" />
-
-    <TextView
-        android:id="@+id/contentView"
-        android:layout_width="89dp"
-        android:layout_height="32dp"
-        android:layout_marginTop="36dp"
-        android:gravity="center"
-        android:text="내용"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.139"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/priceView" />
-
-    <Button
-        android:id="@+id/btn_save"
-        android:layout_width="300dp"
-        android:layout_height="50dp"
-        android:backgroundTint="@color/dark_green"
-        android:text="저장"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/contentView"
-        app:layout_constraintVertical_bias="0.567" />
-
-    <EditText
-        android:id="@+id/inputDate"
-        android:layout_width="233dp"
-        android:layout_height="45dp"
-        android:layout_marginEnd="28dp"
-        android:layout_marginBottom="36dp"
-        android:ems="10"
-        android:inputType="date"
-        android:text="날짜를 입력하세요"
-        android:textAlignment="center"
-        android:textSize="12sp"
-        app:layout_constraintBottom_toTopOf="@+id/itemView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/dateView" />
-
-    <EditText
-        android:id="@+id/inputPrice"
-        android:layout_width="233dp"
-        android:layout_height="45dp"
-        android:layout_marginBottom="36dp"
-        android:ems="10"
-        android:inputType="number"
-        android:text="금액을 입력하세요"
-        android:textAlignment="center"
-        android:textSize="12sp"
-        app:layout_constraintBottom_toTopOf="@+id/contentView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.181"
-        app:layout_constraintStart_toEndOf="@+id/priceView" />
-
-    <EditText
-        android:id="@+id/inputContent"
-        android:layout_width="233dp"
-        android:layout_height="45dp"
-        android:layout_marginBottom="104dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="메모"
-        android:textAlignment="center"
-        android:textSize="12sp"
-        app:layout_constraintBottom_toTopOf="@+id/btn_save"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.181"
-        app:layout_constraintStart_toEndOf="@+id/contentView" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
