@@ -1,5 +1,6 @@
 package com.example.accountbookssukssuk;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,15 +11,25 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 public class Fragmenta extends Fragment {
 
-    public Fragmenta(){
+    FloatingActionButton fab1;
 
-    }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragmenta, container, false);
+        View view = inflater.inflate(R.layout.fragmenta, container, false);
+
+        fab1 = (FloatingActionButton) view.findViewById(R.id.Floating_btn2);
+        fab1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getActivity(), AssetsActivity.class));
+            }
+        });
+        return view;
     }
 }
