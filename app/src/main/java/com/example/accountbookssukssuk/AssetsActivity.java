@@ -69,7 +69,9 @@ public class AssetsActivity extends AppCompatActivity {
                     TotalData data = new TotalData(sMain, sSub, sPrice);
                     //set TEXT on main data
                     total_database.totalDao().insert(data);
-
+                    mainCategory.setText("");
+                    subCategory.setText("");
+                    price.setText("");
                 }
 
                 //notify when data is inserted
