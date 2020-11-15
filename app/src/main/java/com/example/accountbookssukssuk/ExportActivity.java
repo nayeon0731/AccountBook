@@ -34,6 +34,7 @@ public class ExportActivity extends AppCompatActivity {
         button = findViewById(R.id.btn_expenditure);
         button = findViewById(R.id.btn_save);
 
+        //ImportActivity로 이동
         Intent intent = new Intent(this, ImportActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
