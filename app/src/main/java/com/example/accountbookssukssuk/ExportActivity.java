@@ -12,14 +12,11 @@ import android.widget.TextView;
 
 public class ExportActivity extends AppCompatActivity {
 
-    ImageView back2;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_export);
 
-        back2 = findViewById(R.id.back2);
 
     }
 
