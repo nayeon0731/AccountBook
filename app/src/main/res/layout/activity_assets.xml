@@ -37,11 +37,19 @@
             android:text="분류 : "
             android:layout_marginLeft="10dp"/>
 
-        <EditText
-            android:layout_width="match_parent"
+        <Spinner
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:id="@+id/main_category_text"
+            android:entries="@array/main"
             android:layout_marginRight="10dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/array_text"
+            android:text="선택 : "
+            android:visibility="invisible"/>
 
     </LinearLayout>
 
@@ -62,6 +70,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/sub_category_text"
             android:layout_marginRight="10dp"/>
+
     </LinearLayout>
 
     <LinearLayout

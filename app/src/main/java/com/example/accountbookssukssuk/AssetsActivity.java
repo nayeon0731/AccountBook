@@ -11,23 +11,29 @@ import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.example.accountbookssukssuk.total.TotalAdapter;
 import com.example.accountbookssukssuk.total.TotalDB;
 import com.example.accountbookssukssuk.total.TotalData;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class AssetsActivity extends AppCompatActivity {
 
-    EditText mainCategory, subCategory, price;
+    Spinner mainCategory;
+    EditText subCategory, price;
     Button btAdd;
     RecyclerView recyclerView;
-    ImageView back1;
 
     List<TotalData> total_dataList = new ArrayList<>();
     LinearLayoutManager linearLayoutManager;
@@ -52,6 +58,19 @@ public class AssetsActivity extends AppCompatActivity {
         price = findViewById(R.id.price_text);
         btAdd = findViewById(R.id.add_btn);
         recyclerView = findViewById(R.id.recycler_view);
+        final TextView array_text = (TextView)findViewById(R.id.array_text);
+
+
+        mainCategory.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                array_text.setText(""+parent.getItemAtPosition(position));
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
 
         //Initialize database
         total_database = TotalDB.getInstance(this);
@@ -72,7 +91,7 @@ public class AssetsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //get string from edit text
-                String sMain = mainCategory.getText().toString();
+                String sMain = array_text.getText().toString();
                 String sSub = subCategory.getText().toString();
                 String sPrice = price.getText().toString();
 
@@ -83,7 +102,6 @@ public class AssetsActivity extends AppCompatActivity {
                     TotalData data = new TotalData(sMain, sSub, sPrice);
                     //set TEXT on main data
                     total_database.totalDao().insert(data);
-                    mainCategory.setText("");
                     subCategory.setText("");
                     price.setText("");
                 }

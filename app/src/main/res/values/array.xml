@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="main">
+        <item>저축</item>
+        <item>계좌</item>
+    </string-array>
+</resources>
