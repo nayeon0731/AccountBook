@@ -38,47 +38,39 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_alignParentBottom="true">
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/edge">
 
-        <Button
+        <ImageButton
             android:id="@+id/btn_list"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@drawable/edge"
+            android:src="@mipmap/btn_list"
             android:insetTop="0dp"
             android:insetBottom="0dp"
-            android:text="리스트"
-            android:textColor="@color/black"
-            app:backgroundTint="@color/cardview_shadow_end_color"
-            app:elevation="0dp" />
+            app:backgroundTint="#00FFFFFF" />
 
-        <Button
+        <ImageButton
             android:id="@+id/btn_home"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@drawable/edge"
+            android:src="@mipmap/btn_home"
             android:insetTop="0dp"
             android:insetBottom="0dp"
-            android:text="홈"
-            android:textColor="@color/black"
-            app:backgroundTint="@color/cardview_shadow_end_color"
-            app:elevation="0dp" />
+            app:backgroundTint="#00FFFFFF" />
 
-        <Button
+        <ImageButton
             android:id="@+id/btn_asset"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@drawable/edge"
+            android:src="@mipmap/btn_asset"
             android:insetTop="0dp"
             android:insetBottom="0dp"
-            android:text="자산"
-            android:textColor="@color/black"
-            app:backgroundTint="@color/cardview_shadow_end_color"
-            app:elevation="0dp" />
+            app:backgroundTint="#00FFFFFF" />
 
     </LinearLayout>
 

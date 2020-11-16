@@ -7,11 +7,11 @@ import androidx.fragment.app.FragmentTransaction;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
+import android.widget.ImageButton;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button btn_list, btn_home, btn_asset;
+    ImageButton btn_list, btn_home, btn_asset;
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -19,9 +19,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        btn_list = (Button)findViewById(R.id.btn_list);
-        btn_home = (Button)findViewById(R.id.btn_home);
-        btn_asset = (Button)findViewById(R.id.btn_asset);
+        btn_list = (ImageButton)findViewById(R.id.btn_list);
+        btn_home = (ImageButton)findViewById(R.id.btn_home);
+        btn_asset = (ImageButton)findViewById(R.id.btn_asset);
 
         btn_list.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -30,6 +30,9 @@ public class MainActivity extends AppCompatActivity {
                 Fragmentl fragmentl = new Fragmentl();
                 transaction.replace(R.id.frame, fragmentl);
                 transaction.commit();
+                btn_list.setImageDrawable(getResources().getDrawable(R.mipmap.sel_list, getApplicationContext().getTheme()));
+                btn_home.setImageDrawable(getResources().getDrawable(R.mipmap.btn_home, getApplicationContext().getTheme()));
+                btn_asset.setImageDrawable(getResources().getDrawable(R.mipmap.btn_asset, getApplicationContext().getTheme()));
             }
         });
 
@@ -40,6 +43,9 @@ public class MainActivity extends AppCompatActivity {
                 Fragmenth fragmenth = new Fragmenth();
                 transaction.replace(R.id.frame, fragmenth);
                 transaction.commit();
+                btn_list.setImageDrawable(getResources().getDrawable(R.mipmap.btn_list, getApplicationContext().getTheme()));
+                btn_home.setImageDrawable(getResources().getDrawable(R.mipmap.sel_home, getApplicationContext().getTheme()));
+                btn_asset.setImageDrawable(getResources().getDrawable(R.mipmap.btn_asset, getApplicationContext().getTheme()));
             }
         });
 
@@ -50,6 +56,9 @@ public class MainActivity extends AppCompatActivity {
                 Fragmenta fragmenta = new Fragmenta();
                 transaction.replace(R.id.frame, fragmenta);
                 transaction.commit();
+                btn_list.setImageDrawable(getResources().getDrawable(R.mipmap.btn_list, getApplicationContext().getTheme()));
+                btn_home.setImageDrawable(getResources().getDrawable(R.mipmap.btn_home, getApplicationContext().getTheme()));
+                btn_asset.setImageDrawable(getResources().getDrawable(R.mipmap.sel_asset, getApplicationContext().getTheme()));
             }
         });
 
