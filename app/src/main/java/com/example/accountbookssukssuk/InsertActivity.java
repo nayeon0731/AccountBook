@@ -18,5 +18,25 @@ public class InsertActivity extends AppCompatActivity {
 
         btn_import = (Button)findViewById(R.id.btn_import);
         btn_export = (Button)findViewById(R.id.btn_export);
+
+        btn_import.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                ImportActivity fragment_import = new ImportActivity();
+                transaction.replace(R.id.frame, fragment_import);
+                transaction.commit();
+            }
+        });
+
+        btn_export.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                ExportActivity fragment_export = new ExportActivity();
+                transaction.replace(R.id.frame, fragment_export);
+                transaction.commit();
+            }
+        });
     }
 }

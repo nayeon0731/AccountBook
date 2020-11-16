@@ -65,8 +65,6 @@
                 android:backgroundTint="#ccc"/>
 
 
-
-
         </LinearLayout>
 
     </FrameLayout>
