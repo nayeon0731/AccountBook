@@ -48,6 +48,7 @@ public class TotalAdapter extends RecyclerView.Adapter<TotalAdapter.ViewHolder> 
         //Initialize database
         total_database = TotalDB.getInstance(context);
         //Set text on text view
+        holder.mainView.setText(data.getMainCategory());
         holder.textView.setText(data.getSubCategory());
         holder.priceView.setText(data.getPrice());
 
@@ -58,6 +59,7 @@ public class TotalAdapter extends RecyclerView.Adapter<TotalAdapter.ViewHolder> 
                 TotalData td = total_dataList.get(holder.getAdapterPosition());
                 // ID 값 얻기
                 int sID = td.getID();
+                // MainCategory 값 얻기
                 String sMain = td.getMainCategory();
                 // text 얻기
                 String sSubCategory = td.getSubCategory();
@@ -78,11 +80,13 @@ public class TotalAdapter extends RecyclerView.Adapter<TotalAdapter.ViewHolder> 
                 dialog.show();
 
                 //initialize and assign variable
+                EditText editMain = dialog.findViewById(R.id.edit_main);
                 EditText editText = dialog.findViewById(R.id.edit_text);
                 EditText editPrice = dialog.findViewById(R.id.edit_price);
                 Button btUpdate = dialog.findViewById(R.id.bt_update);
 
                 //set text on edit text
+                editMain.setText(sMain);
                 editText.setText(sSubCategory);
                 editPrice.setText(sPrice);
 
@@ -92,10 +96,11 @@ public class TotalAdapter extends RecyclerView.Adapter<TotalAdapter.ViewHolder> 
                         //dismiss dialog
                         dialog.dismiss();
                         //get update text from edit text
+                        String uMain = editMain.getText().toString().trim();
                         String uText = editText.getText().toString().trim();
                         String uPrice = editPrice.getText().toString().trim();
                         //update text in database
-                        total_database.totalDao().update(sID, sMain, uText, uPrice);
+                        total_database.totalDao().update(sID, uMain, uText, uPrice);
                         //NOTIFY when data is updated
                         total_dataList.clear();
                         total_dataList.addAll(total_database.totalDao().getAll());
@@ -129,13 +134,14 @@ public class TotalAdapter extends RecyclerView.Adapter<TotalAdapter.ViewHolder> 
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         // Initialize variavle
-        TextView textView, priceView;
+        TextView mainView, textView, priceView;
         ImageView btEdit, btDelete;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
             // Assign variiable
+            mainView = itemView.findViewById(R.id.category_view);
             textView = itemView.findViewById(R.id.text_view);
             priceView = itemView.findViewById(R.id.price_view);
             btEdit = itemView.findViewById(R.id.bt_edit);
