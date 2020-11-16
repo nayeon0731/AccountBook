@@ -1,4 +1,4 @@
-package com.example.accountbookssukssuk.income;
+package com.example.accountbookssukssuk.spend;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
@@ -6,15 +6,15 @@ import androidx.room.PrimaryKey;
 
 import java.io.Serializable;
 
-@Entity(tableName = "income_table")
-public class IncomeData implements Serializable {
+@Entity(tableName = "spend_table")
+public class SpendData implements Serializable {
     // id 컬럼 만들기
     @PrimaryKey(autoGenerate = true)
     private int ID;
 
     // text 컬럼 만들기
-    @ColumnInfo(name = "Income_date")
-    private String incomeDate;
+    @ColumnInfo(name = "spend_date")
+    private String spendDate;
 
     @ColumnInfo(name = "main_category")
     private String mainCategory;
@@ -28,8 +28,8 @@ public class IncomeData implements Serializable {
     @ColumnInfo(name = "comment")
     private String comment;
 
-    public IncomeData(String incomeDate, String mainCategory, String subCategory, String price, String comment) {
-        this.incomeDate = incomeDate;
+    public SpendData(String spendDate, String mainCategory, String subCategory, String price, String comment) {
+        this.spendDate = spendDate;
         this.mainCategory = mainCategory;
         this.subCategory = subCategory;
         this.price = price;
@@ -40,8 +40,8 @@ public class IncomeData implements Serializable {
         return ID;
     }
 
-    public String getIncomeDate() {
-        return incomeDate;
+    public String getSpendDate() {
+        return spendDate;
     }
 
     public String getMainCategory() {

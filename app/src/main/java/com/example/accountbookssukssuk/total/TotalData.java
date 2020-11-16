@@ -8,7 +8,7 @@ import java.io.Serializable;
 
 // 테이블 이름 정의
 @Entity(tableName = "total_table")
-public class TotalData  implements Serializable {
+public class TotalData implements Serializable {
 
     // id 컬럼 만들기
     @PrimaryKey(autoGenerate = true)
