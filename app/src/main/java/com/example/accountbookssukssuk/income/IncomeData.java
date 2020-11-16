@@ -36,6 +36,10 @@ public class IncomeData implements Serializable {
         this.comment = comment;
     }
 
+    public void setID(int ID) {
+        this.ID = ID;
+    }
+
     public int getID() {
         return ID;
     }
