@@ -2,6 +2,7 @@ package com.example.accountbookssukssuk;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.room.ColumnInfo;
 
@@ -31,7 +32,11 @@ public class InsertActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true); //툴바 뒤로가기 버튼
 
-        btn_import.setBackgroundColor(Color.LTGRAY);
+        FragmentManager fm = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fm.beginTransaction();
+        fragmentTransaction.add(R.id.frame, new ImportActivity());
+        fragmentTransaction.commit();
+
         btn_export.setBackgroundColor(Color.LTGRAY);
 
         btn_import.setOnTouchListener(new View.OnTouchListener() {

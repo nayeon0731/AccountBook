@@ -9,7 +9,8 @@
     <FrameLayout
         android:id="@+id/frame"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        tools:layout="@layout/fragmenth">
 
         <androidx.appcompat.widget.Toolbar
             android:layout_width="match_parent"
@@ -50,17 +51,17 @@
             android:src="@mipmap/btn_list"
             android:insetTop="0dp"
             android:insetBottom="0dp"
-            app:backgroundTint="#00FFFFFF" />
+            app:backgroundTint="#00ffffff" />
 
         <ImageButton
             android:id="@+id/btn_home"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:src="@mipmap/btn_home"
+            android:src="@mipmap/sel_home"
             android:insetTop="0dp"
             android:insetBottom="0dp"
-            app:backgroundTint="#00FFFFFF" />
+            app:backgroundTint="#00ffffff" />
 
         <ImageButton
             android:id="@+id/btn_asset"
@@ -70,7 +71,7 @@
             android:src="@mipmap/btn_asset"
             android:insetTop="0dp"
             android:insetBottom="0dp"
-            app:backgroundTint="#00FFFFFF" />
+            app:backgroundTint="#00ffffff" />
 
     </LinearLayout>
 

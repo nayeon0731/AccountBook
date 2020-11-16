@@ -10,6 +10,7 @@
 
     <color name="dark_green">#475E53</color>
     <color name="menu">#B2D2A7</color>
+    <color name="button">#D3E6C0</color>
 
     <color name="main_toolbar">#7EA285</color>
     <color name="btn_click">#DAEEDF</color>

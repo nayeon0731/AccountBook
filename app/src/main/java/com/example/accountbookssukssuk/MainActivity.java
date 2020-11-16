@@ -2,8 +2,10 @@ package com.example.accountbookssukssuk;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
@@ -22,6 +24,11 @@ public class MainActivity extends AppCompatActivity {
         btn_list = (ImageButton)findViewById(R.id.btn_list);
         btn_home = (ImageButton)findViewById(R.id.btn_home);
         btn_asset = (ImageButton)findViewById(R.id.btn_asset);
+
+        FragmentManager fm = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fm.beginTransaction();
+        fragmentTransaction.add(R.id.frame, new Fragmenth());
+        fragmentTransaction.commit();
 
         btn_list.setOnClickListener(new View.OnClickListener() {
             @Override
