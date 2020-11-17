@@ -38,7 +38,7 @@
             android:layout_marginLeft="10dp"/>
 
         <Spinner
-            android:layout_width="200dp"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:id="@+id/main_category_text"
             android:entries="@array/main"

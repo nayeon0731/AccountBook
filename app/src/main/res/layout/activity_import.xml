@@ -21,11 +21,20 @@
                 android:text="날짜 : "
                 android:layout_marginLeft="20dp"/>
 
-            <EditText
-                android:layout_width="match_parent"
+            <Button
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/income_date"
+                android:id="@+id/date_picker"
+                android:text="날짜선택"
+                android:layout_marginLeft="10dp"
                 android:layout_marginRight="20dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/income_date_text"
+                android:text="날짜를 선택해주세요."/>
+
 
         </LinearLayout>
 
@@ -45,6 +54,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/income_sub"
+                android:layout_marginLeft="10dp"
                 android:layout_marginRight="20dp"/>
         </LinearLayout>
 
@@ -64,6 +74,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/income_price"
+                android:layout_marginLeft="10dp"
                 android:layout_marginRight="20dp"/>
         </LinearLayout>
 
@@ -83,6 +94,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/income_comment"
+                android:layout_marginLeft="10dp"
                 android:layout_marginRight="20dp"/>
         </LinearLayout>
 
@@ -97,8 +109,10 @@
             android:text="저장"/>
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
             android:text="수입"/>
 
     </LinearLayout>
