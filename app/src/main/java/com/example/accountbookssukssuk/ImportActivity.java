@@ -28,21 +28,7 @@ public class ImportActivity extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        ViewGroup viewGroup = (ViewGroup) inflater.inflate(R.layout.activity_import, container, false);
-        Spinner object_spinner = viewGroup.findViewById(R.id.object_category_text);
-        final TextView array_text = viewGroup.findViewById(R.id.array_income_text);
+        return inflater.inflate(R.layout.activity_import, container, false);
 
-        object_spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                array_text.setText(""+parent.getItemAtPosition(position));
-            }
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
-
-        return viewGroup;
     }
 }

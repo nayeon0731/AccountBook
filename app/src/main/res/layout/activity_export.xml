@@ -38,7 +38,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="항목 : "
+            android:text="계좌 : "
             android:layout_marginLeft="20dp"/>
 
         <EditText
@@ -48,24 +48,32 @@
             android:layout_marginRight="20dp"/>
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="분류 : "
-            android:layout_marginLeft="20dp"/>
-
-        <EditText
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/export_sub"
-            android:layout_marginRight="20dp"/>
-    </LinearLayout>
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="항목 : "
+                android:layout_marginLeft="20dp"/>
+
+            <Spinner
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/object_category_text"
+                android:entries="@array/object"
+                android:layout_marginRight="10dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/array_export_text"
+                android:text="선택 : "
+                android:visibility="invisible"/>
+        </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
