@@ -21,11 +21,19 @@
             android:text="날짜 : "
             android:layout_marginLeft="20dp"/>
 
-        <EditText
-            android:layout_width="match_parent"
+        <Button
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/export_date"
+            android:id="@+id/export_date_picker"
+            android:text="날짜선택"
+            android:layout_marginLeft="10dp"
             android:layout_marginRight="20dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/export_date_text"
+            android:text="날짜를 선택해주세요."/>
 
     </LinearLayout>
 

@@ -10,7 +10,7 @@ import androidx.fragment.app.DialogFragment;
 
 import java.util.Calendar;
 
-public class SelectDateFragment extends DialogFragment implements DatePickerDialog.OnDateSetListener {
+public class SelectDateFragmentExport extends DialogFragment implements DatePickerDialog.OnDateSetListener {
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -27,7 +27,7 @@ public class SelectDateFragment extends DialogFragment implements DatePickerDial
     }
 
     public void populateSetDate(int year, int month, int day) {
-        TextView income_date_text= (TextView)getActivity().findViewById(R.id.income_date_text);
+        TextView income_date_text= (TextView)getActivity().findViewById(R.id.export_date_text);
         income_date_text.setText(year+"/"+month+"/"+day);
     }
 }

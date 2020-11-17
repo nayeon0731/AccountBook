@@ -3,6 +3,7 @@ package com.example.accountbookssukssuk;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 
 import android.content.Intent;
@@ -29,7 +30,18 @@ public class ExportActivity extends Fragment {
         ViewGroup viewGroup = (ViewGroup) inflater.inflate(R.layout.activity_export, container, false);
         Spinner object_spinner = viewGroup.findViewById(R.id.object_category_text);
         final TextView array_text = viewGroup.findViewById(R.id.array_export_text);
+        Button export_date_picker = viewGroup.findViewById(R.id.export_date_picker);
 
+        // 날짜선택
+        export_date_picker.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DialogFragment newFragment = new SelectDateFragmentExport();
+                newFragment.show(getFragmentManager(), "DatePicker");
+            }
+        });
+
+        // 항목선택
         object_spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {

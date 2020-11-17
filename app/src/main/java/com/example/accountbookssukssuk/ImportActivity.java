@@ -38,6 +38,8 @@ public class ImportActivity extends Fragment {
         TextView date_text = viewGroup.findViewById(R.id.income_date_text);
         Button income_date_picker = viewGroup.findViewById(R.id.date_picker);
 
+
+        //날짜선택
         income_date_picker.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -45,9 +47,7 @@ public class ImportActivity extends Fragment {
                 newFragment.show(getFragmentManager(), "DatePicker");
             }
         });
-
         return viewGroup;
     }
-
 
 }
