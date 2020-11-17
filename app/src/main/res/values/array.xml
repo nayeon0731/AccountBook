@@ -3,5 +3,6 @@
     <string-array name="main">
         <item>저축</item>
         <item>계좌</item>
+        <item>현금</item>
     </string-array>
 </resources>
