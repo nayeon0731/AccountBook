@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="object">
+        <item>통신비</item>
+        <item>스트리밍</item>
+        <item>저축</item>
+        <item>월세</item>
+        <item>관리비</item>
+        <item>식비</item>
+        <item>간식비</item>
+        <item>생필품</item>
+        <item>의료비</item>
+        <item>교통비</item>
+        <item>여행</item>
+        <item>패션</item>
+        <item>경조사비</item>
+        <item>세금</item>
+        <item>기타</item>
+    </string-array>
+</resources>
