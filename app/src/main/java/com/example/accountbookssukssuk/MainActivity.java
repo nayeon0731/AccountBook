@@ -21,9 +21,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        btn_list = (ImageButton)findViewById(R.id.btn_list);
-        btn_home = (ImageButton)findViewById(R.id.btn_home);
-        btn_asset = (ImageButton)findViewById(R.id.btn_asset);
+        btn_list = (ImageButton)findViewById(R.id.btn_list);    // 리스트 버튼
+        btn_home = (ImageButton)findViewById(R.id.btn_home);    // 홈(캘린더) 버튼
+        btn_asset = (ImageButton)findViewById(R.id.btn_asset);    // 자산 버튼
 
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fm.beginTransaction();
