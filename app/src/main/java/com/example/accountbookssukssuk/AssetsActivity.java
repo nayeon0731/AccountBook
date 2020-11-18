@@ -85,12 +85,16 @@ public class AssetsActivity extends AppCompatActivity {
         mSubViewModel.getAllTotal().observe(this, new Observer<List<TotalData>>() {
             @Override
             public void onChanged(@Nullable final List<TotalData> totalData) {
+                // 기존에 쌓여있던 데이터리스트에 값 지우기
+                total_dataList.clear();
                 for (TotalData totalData1 : totalData){
                     total_dataList.add(totalData1.getSubCategory());
                     total_IdList.add(totalData1.getID());
                 }
                 //notifyDataSetChanged after update termsList variable here
+
                 adapter.notifyDataSetChanged();
+
             }
         });
 
