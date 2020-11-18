@@ -24,7 +24,7 @@ public class TotalData implements Serializable {
     @ColumnInfo(name = "price")
     private String price;
 
-    // 정보를 한번에 저장해서 묶기
+    // 정보를 한번에 저장해서 캡슐화
     // getter값이다.
     public TotalData(String mainCategory, String subCategory, String price) {
         this.mainCategory = mainCategory;

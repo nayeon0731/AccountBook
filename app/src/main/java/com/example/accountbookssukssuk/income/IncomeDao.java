@@ -22,10 +22,6 @@ public interface IncomeDao {
     @Delete
     void delete(IncomeData incomeData);
 
-    // Delete all
-    @Delete
-    void reset(List<IncomeData> mainData);
-
     // Update query
     @Query("UPDATE income_table SET Income_date = :sIncomeDate, main_category = :sMainCategory, sub_category = :sSubCategory, price = :sPrice, comment = :sComment  WHERE ID = :sID")
     void update(int sID, String sIncomeDate, String sMainCategory, String sSubCategory, String sPrice, String sComment);

@@ -22,10 +22,6 @@ public interface SpendDao {
     @Delete
     void delete(SpendData spendData);
 
-    // Delete all
-    @Delete
-    void reset(List<SpendData> mainData);
-
     // Update query
     @Query("UPDATE spend_table SET spend_date = :sSpendDate, main_category = :sMainCategory, sub_category = :sSubCategory, price = :sPrice, comment = :sComment  WHERE ID = :sID")
     void update(int sID, String sSpendDate, String sMainCategory, String sSubCategory, String sPrice, String sComment);
