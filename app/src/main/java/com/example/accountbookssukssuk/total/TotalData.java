@@ -11,7 +11,7 @@ import java.io.Serializable;
 public class TotalData implements Serializable {
 
     // id 컬럼 만들기
-    @PrimaryKey(autoGenerate = true)
+    @PrimaryKey(autoGenerate = true) // autoGenerate는 알아서 id를 1씩 증가시켜줌.
     private int ID;
 
     // text 컬럼 만들기

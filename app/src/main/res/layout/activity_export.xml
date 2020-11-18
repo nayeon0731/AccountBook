@@ -49,11 +49,12 @@
             android:text="분류 : "
             android:layout_marginLeft="20dp"/>
 
-        <EditText
-            android:layout_width="match_parent"
+        <Spinner
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:id="@+id/export_main"
-            android:layout_marginRight="20dp"/>
+            android:layout_marginRight="10dp"/>
+<!--          android:entries="@array/object"/>-->
     </LinearLayout>
 
         <LinearLayout

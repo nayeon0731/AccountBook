@@ -1,12 +1,12 @@
 package com.example.accountbookssukssuk;
 
+import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 
-import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -15,30 +15,27 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import com.example.accountbookssukssuk.total.TotalAdapter;
 import com.example.accountbookssukssuk.total.TotalDB;
 import com.example.accountbookssukssuk.total.TotalData;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import static java.security.AccessController.getContext;
+
 public class AssetsActivity extends AppCompatActivity {
 
-    Spinner mainCategory;
+    Spinner mainCategory, test;
     EditText subCategory, price;
     Button btAdd;
-    RecyclerView recyclerView;
 
-    List<TotalData> total_dataList = new ArrayList<>();
-    LinearLayoutManager linearLayoutManager;
+    List<String> total_dataList = new ArrayList<String>();
+    List<Integer> total_IdList = new ArrayList<Integer>();
+
     TotalDB total_database;
-    TotalAdapter total_adapter;
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -55,11 +52,13 @@ public class AssetsActivity extends AppCompatActivity {
 
         // 변수정의
         mainCategory = findViewById(R.id.main_category_text);
+        test = findViewById(R.id.test_spinner);
         subCategory = findViewById(R.id.sub_category_text);
         price = findViewById(R.id.price_text);
         btAdd = findViewById(R.id.add_btn);
-        recyclerView = findViewById(R.id.recycler_view);
+
         final TextView array_text = (TextView)findViewById(R.id.array_text);
+        //final TextView array_text2 = (TextView)findViewById(R.id.array_text2);
 
         // 분류 Spinner를 선택하면
         mainCategory.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -74,26 +73,32 @@ public class AssetsActivity extends AppCompatActivity {
             }
         });
 
-        // 데이터베이스 초기화
+
+        // 데이터베이스 초기화(생성)
         total_database = TotalDB.getInstance(this);
-        // this로 받아온 인스턴스값을 데이터베이스에 저장
-        total_dataList = total_database.totalDao().getAll();
 
-        // linear layout manager 초기화
-        linearLayoutManager = new LinearLayoutManager(this);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_spinner_item, total_dataList);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        test.setAdapter(adapter);
 
-        // 리사이클러뷰에 layout manager 세팅하기
-        recyclerView.setLayoutManager(linearLayoutManager);
-        // 어댑터 초기화
-        total_adapter = new TotalAdapter(AssetsActivity.this,total_dataList);
-        // 리사이클러뷰에 어댑터 세팅하기
-        recyclerView.setAdapter(total_adapter);
+        SubViewModel mSubViewModel = new ViewModelProvider(this).get(SubViewModel.class);
+        mSubViewModel.getAllTotal().observe(this, new Observer<List<TotalData>>() {
+            @Override
+            public void onChanged(@Nullable final List<TotalData> totalData) {
+                for (TotalData totalData1 : totalData){
+                    total_dataList.add(totalData1.getSubCategory());
+                    total_IdList.add(totalData1.getID());
+                }
+                //notifyDataSetChanged after update termsList variable here
+                adapter.notifyDataSetChanged();
+            }
+        });
 
-        // 저장하기 버튼을 누르면
+
+
         btAdd.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                // EditText로 string값 받아오기
+            public void onClick(View view) {
                 String sMain = array_text.getText().toString();
                 String sSub = subCategory.getText().toString();
                 String sPrice = price.getText().toString();
@@ -108,16 +113,9 @@ public class AssetsActivity extends AppCompatActivity {
                     subCategory.setText("");
                     price.setText("");
                 }
-
-                // 리스트 정보 모두 지우기
-                total_dataList.clear();
-                // 데이터베이스에서 받아온 정보들을 리스트에 다시채우기
-                total_dataList.addAll(total_database.totalDao().getAll());
-                // 리사이클러뷰에 리스트 다시 불러오기
-                total_adapter.notifyDataSetChanged();
-
             }
         });
+
 
     }
 

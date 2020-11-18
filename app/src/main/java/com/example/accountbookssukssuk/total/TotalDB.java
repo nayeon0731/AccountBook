@@ -24,14 +24,18 @@ public abstract class TotalDB extends RoomDatabase {
         if (total_database == null) {
             // 데이터베이스가 비어있을 때
             // 데이터베이스 초기화
-            total_database = Room.databaseBuilder(context.getApplicationContext(),
-                    TotalDB.class, DATABASE_NAME)
-                    .allowMainThreadQueries()
-                    .fallbackToDestructiveMigration()
+            total_database = Room.databaseBuilder(context, TotalDB.class, DATABASE_NAME)
+                    .allowMainThreadQueries() // => 이걸 추가해서 AsyncTask 를 사용안하고 간편하게할수있지만 오류가많아 실제 앱을 만들때 사용하면 안된다고함.
+                   .fallbackToDestructiveMigration()
                     .build();
         }
         // 데이터베이스 반환
         return total_database;
+    }
+
+    //디비객체제거
+    public static void destroyInstance() {
+         total_database = null;
     }
 
 }
