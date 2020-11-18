@@ -38,8 +38,9 @@ public class InsertActivity extends AppCompatActivity {
         fragmentTransaction.add(R.id.frame, new ImportActivity());
         fragmentTransaction.commit();
 
+        // 수입이랑 지출 버튼 선택시 색 바꾸기
         btn_export.setBackgroundColor(Color.LTGRAY);
-
+        // 수입 버튼 누르면 색 바꿈
         btn_import.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -48,7 +49,7 @@ public class InsertActivity extends AppCompatActivity {
                 return false;
             }
         });
-
+        // 지출 버튼 누르면 색 바꿈
         btn_export.setOnTouchListener(new View.OnTouchListener() {
             @SuppressLint("ResourceAsColor")
             @Override
@@ -59,6 +60,8 @@ public class InsertActivity extends AppCompatActivity {
             }
         });
 
+        // 수입 버튼 누르면
+        // 수입 플래그먼트(ImportActivity)창으로 이동하기
         btn_import.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -69,6 +72,8 @@ public class InsertActivity extends AppCompatActivity {
             }
         });
 
+        // 지출 버튼 누르면
+        // 지출 플래그먼트(ExportActivity)창으로 이동하기
         btn_export.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

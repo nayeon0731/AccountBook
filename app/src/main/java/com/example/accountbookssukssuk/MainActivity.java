@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
         fragmentTransaction.add(R.id.frame, new Fragmenth());
         fragmentTransaction.commit();
 
+        // 리스트 버튼 누르면 리스트창(Fragmentl)로 이동
         btn_list.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -43,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // 홈 버튼 누르면 메인창(Fragmenth)으로 이동
         btn_home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -56,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // 자산 버튼 누르면 자산창(Fragmenta)로 이동
         btn_asset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

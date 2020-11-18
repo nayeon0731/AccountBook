@@ -25,7 +25,8 @@ public class TotalAdapter extends RecyclerView.Adapter<TotalAdapter.ViewHolder> 
     private Activity context;
     private TotalDB total_database;
 
-    // Create constructor
+    // constructor 만들기
+    // constructor 호출시 같은 id 값을 갖는 요소들을 캡슐화해서 보내줌
     public TotalAdapter(Activity context, List<TotalData> total_dataList) {
         this.context = context;
         this.total_dataList = total_dataList;
@@ -35,7 +36,7 @@ public class TotalAdapter extends RecyclerView.Adapter<TotalAdapter.ViewHolder> 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        // Initialize view
+        // view 초기화
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.list_row_main,parent, false);
         return new ViewHolder(view);
@@ -43,11 +44,11 @@ public class TotalAdapter extends RecyclerView.Adapter<TotalAdapter.ViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        //Initialize main data
+        //main data 초기화
         TotalData data = total_dataList.get(position);
-        //Initialize database
+        //database 초기화
         total_database = TotalDB.getInstance(context);
-        //Set text on text view
+        //TextView를 데이터베이스에 집어넣기
         holder.mainView.setText(data.getMainCategory());
         holder.textView.setText(data.getSubCategory());
         holder.priceView.setText(data.getPrice());
@@ -66,60 +67,72 @@ public class TotalAdapter extends RecyclerView.Adapter<TotalAdapter.ViewHolder> 
                 // price 얻기
                 String sPrice = td.getPrice();
 
-                //Create dialog
+
+                // 수정창 띄우기기
+                // Create dialog
                 Dialog dialog = new Dialog(context);
-                //Set content view
+                // Set content view
                 dialog.setContentView(R.layout.dialog_update);
-                //Initialize width
+                // Initialize width
                 int width = WindowManager.LayoutParams.MATCH_PARENT;
-                //initialize height
+                // initialize height
                 int height = WindowManager.LayoutParams.WRAP_CONTENT;
-                //set layout
+                // set layout
                 dialog.getWindow().setLayout(width,height);
-                //show dialog
+                // show dialog
                 dialog.show();
 
-                //initialize and assign variable
+                // 수정창의 변수들 정의
+                // initialize and assign variable
                 EditText editMain = dialog.findViewById(R.id.edit_main);
                 EditText editText = dialog.findViewById(R.id.edit_text);
                 EditText editPrice = dialog.findViewById(R.id.edit_price);
                 Button btUpdate = dialog.findViewById(R.id.bt_update);
 
-                //set text on edit text
+                // id에 맞는 데이터베이스에 저장된 값을 EditText에 받아오기
+                // set text on edit text
                 editMain.setText(sMain);
                 editText.setText(sSubCategory);
                 editPrice.setText(sPrice);
 
+                // 수정 버튼을 누르면
                 btUpdate.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        //dismiss dialog
+                        // 다이얼로그 끄기
                         dialog.dismiss();
-                        //get update text from edit text
+                        // EditText에 적혀있는 수정된 string값을 받아오기
                         String uMain = editMain.getText().toString().trim();
                         String uText = editText.getText().toString().trim();
                         String uPrice = editPrice.getText().toString().trim();
-                        //update text in database
+                        // 수정된 값을 데이터베이스에 업데이트하기
                         total_database.totalDao().update(sID, uMain, uText, uPrice);
-                        //NOTIFY when data is updated
+                        // 데이터베이스에 있는 모든 리스트 지우기
                         total_dataList.clear();
+                        // 데이터베이스에 있는 모든 요소들 받아오기
                         total_dataList.addAll(total_database.totalDao().getAll());
+                        // 리스트뷰 업데이트
                         notifyDataSetChanged();
                     }
                 });
             }
         });
 
+
+        // 삭제 버튼을 누르면
         holder.btDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // 선택된 id 값을 갖는 리스트를 가지고 오기위한 변수
                 //initialize main data
                 TotalData td = total_dataList.get(holder.getAdapterPosition());
+                // 데이터베이스에서 찾아서 삭제하기
                 //delete text from database
                 total_database.totalDao().delete(td);
                 //notify when data is deleted
                 int position = holder.getAdapterPosition();
                 total_dataList.remove(position);
+                // 리스트뷰에서 삭제된 요소 지우기
                 notifyItemRemoved(position);
                 notifyItemRangeChanged(position,total_dataList.size());
             }

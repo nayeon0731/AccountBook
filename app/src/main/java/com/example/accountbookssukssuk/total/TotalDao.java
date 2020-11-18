@@ -20,10 +20,6 @@ public interface TotalDao {
     @Delete
     void delete(TotalData totalData);
 
-    // Delete all
-    @Delete
-    void reset(List<TotalData> mainData);
-
     // Update query
     @Query("UPDATE total_table SET main_category = :sMainCategory, sub_category = :sSubCategory, price = :sPrice  WHERE ID = :sID")
     void update(int sID, String sMainCategory, String sSubCategory, String sPrice);
