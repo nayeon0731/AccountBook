@@ -28,12 +28,9 @@ import static java.security.AccessController.getContext;
 
 public class AssetsActivity extends AppCompatActivity {
 
-    Spinner mainCategory, test;
+    Spinner mainCategory;
     EditText subCategory, price;
     Button btAdd;
-
-    List<String> total_dataList = new ArrayList<String>();
-    List<Integer> total_IdList = new ArrayList<Integer>();
 
     TotalDB total_database;
 
@@ -52,13 +49,11 @@ public class AssetsActivity extends AppCompatActivity {
 
         // 변수정의
         mainCategory = findViewById(R.id.main_category_text);
-        test = findViewById(R.id.test_spinner);
         subCategory = findViewById(R.id.sub_category_text);
         price = findViewById(R.id.price_text);
         btAdd = findViewById(R.id.add_btn);
 
         final TextView array_text = (TextView)findViewById(R.id.array_text);
-        //final TextView array_text2 = (TextView)findViewById(R.id.array_text2);
 
         // 분류 Spinner를 선택하면
         mainCategory.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -76,29 +71,6 @@ public class AssetsActivity extends AppCompatActivity {
 
         // 데이터베이스 초기화(생성)
         total_database = TotalDB.getInstance(this);
-
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_spinner_item, total_dataList);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        test.setAdapter(adapter);
-
-        SubViewModel mSubViewModel = new ViewModelProvider(this).get(SubViewModel.class);
-        mSubViewModel.getAllTotal().observe(this, new Observer<List<TotalData>>() {
-            @Override
-            public void onChanged(@Nullable final List<TotalData> totalData) {
-                // 기존에 쌓여있던 데이터리스트에 값 지우기
-                total_dataList.clear();
-                for (TotalData totalData1 : totalData){
-                    total_dataList.add(totalData1.getSubCategory());
-                    total_IdList.add(totalData1.getID());
-                }
-                //notifyDataSetChanged after update termsList variable here
-
-                adapter.notifyDataSetChanged();
-
-            }
-        });
-
-
 
         btAdd.setOnClickListener(new View.OnClickListener() {
             @Override
