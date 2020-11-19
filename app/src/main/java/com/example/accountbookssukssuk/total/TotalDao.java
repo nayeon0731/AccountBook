@@ -30,9 +30,4 @@ public interface TotalDao {
     @Query("SELECT * FROM total_table")
     LiveData<List<TotalData>> getAll(); //LiveData => TotalData 테이블에 있는 모든 객체를 계속 관찰하고있다가 변경이 일어나면 그것을 자동으로 업데이트.
                                         //getAll() 은 관찰 가능한 객체.(디비변경시 반응하는)
-    @Query("SELECT * FROM total_table WHERE ID = :ID")
-    LiveData<List<TotalData>> getID(int ID);
-
-    @Query("SELECT ID FROM total_table WHERE sub_category = :sub_category")
-    LiveData<List<TotalData>> getSubCategory(String sub_category );
 }
