@@ -16,4 +16,9 @@
     <color name="btn_click">#DAEEDF</color>
     <color name="green3">#B2D2A7</color>
 
+    <color name="gray">#f1f3f8</color>
+
+
+    <color name="blue">#07689f</color>FF1400
+    <color name="red">#FF1400</color>
 </resources>
