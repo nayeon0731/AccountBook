@@ -38,7 +38,6 @@ public class SpendData implements Serializable {
         this.comment = comment;
     }
 
-
     // Getter and Setter
     // 외부에서 직접적으로 데이터에 접근하는 것을 막기 위해 사용. 객체의 무결성 보장
     // Getter : 본 필드의 값을 숨긴 채 내부에서 가공된 값을 꺼낼 때 사용.(출력)

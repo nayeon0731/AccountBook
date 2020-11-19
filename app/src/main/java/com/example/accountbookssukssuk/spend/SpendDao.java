@@ -28,5 +28,7 @@ public interface SpendDao {
 
     // Get all data query
     @Query("SELECT * FROM spend_table")
-    List<IncomeData> getAll();
+    List<SpendData> getAll();
+
+
 }

@@ -8,6 +8,7 @@ import androidx.room.RoomDatabase;
 
 @Database(entities = {IncomeData.class}, version = 1, exportSchema = false)
 public abstract class IncomeDB extends RoomDatabase {
+
     // 인스턴스 만들기
     private static IncomeDB income_instance;
     // Create Dao

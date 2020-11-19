@@ -50,13 +50,20 @@ public class ExportActivity extends Fragment implements DatePickerDialog.OnDateS
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         ViewGroup viewGroup = (ViewGroup) inflater.inflate(R.layout.activity_export, container, false);
-        Spinner object_spinner = viewGroup.findViewById(R.id.object_category_text);
+
+        // 분류선택
         Spinner category_spinner = viewGroup.findViewById(R.id.export_cate);
-        Button save_btn = viewGroup.findViewById(R.id.add_btn2);
-        EditText ex_price = viewGroup.findViewById(R.id.export_price);
-        EditText ex_comment = viewGroup.findViewById(R.id.export_comment);
-        final TextView array_text = viewGroup.findViewById(R.id.array_export_text);
         final TextView array_text2 = viewGroup.findViewById(R.id.array_export_cate);
+        // 항목선택
+        Spinner object_spinner = viewGroup.findViewById(R.id.object_category_text);
+        final TextView array_text = viewGroup.findViewById(R.id.array_export_text);
+        // 금액입력
+        EditText ex_price = viewGroup.findViewById(R.id.export_price);
+        // 내용입력
+        EditText ex_comment = viewGroup.findViewById(R.id.export_comment);
+        // 저장버튼
+        Button save_btn = viewGroup.findViewById(R.id.add_btn2);
+        //날짜선택
         Button export_date_picker = viewGroup.findViewById(R.id.export_date_picker);
         date_text = viewGroup.findViewById(R.id.export_date_text);
 
@@ -135,13 +142,16 @@ public class ExportActivity extends Fragment implements DatePickerDialog.OnDateS
                 String sComment = ex_comment.getText().toString();
                 String sPrice = ex_price.getText().toString();
                 String sCategory = array_text2.getText().toString();
+                String sMain = array_text.getText().toString();
+                String sDate = date_text.getText().toString();
                 // 내용정보와 가격정보를 받아오면
                 if (!sComment.equals("") & !sPrice.equals("")) {
                     // main data 초기화
-                    SpendData data = new SpendData(NULL, NULL, sCategory, sPrice, sComment);
+                    SpendData data = new SpendData(sDate, sMain, sCategory, sPrice, sComment);
                     // main data에 받아온 정보 저장하기
                     spend_database.spendDao().insert(data);
                     // 저장된 후 내용정보와 가격정보를 적는 EditText 빈칸으로 만들기
+                    date_text.setText("날짜를 선택해주세요");
                     ex_comment.setText("");
                     ex_price.setText("");
                 }
