@@ -5,6 +5,7 @@ import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 
+import com.example.accountbookssukssuk.spend.SpendData;
 import com.example.accountbookssukssuk.total.TotalData;
 
 import java.util.List;
@@ -23,8 +24,8 @@ public interface IncomeDao {
     void delete(IncomeData incomeData);
 
     // Update query
-    @Query("UPDATE income_table SET Income_date = :sIncomeDate, main_category = :sMainCategory, sub_category = :sSubCategory, price = :sPrice, comment = :sComment  WHERE ID = :sID")
-    void update(int sID, String sIncomeDate, String sMainCategory, String sSubCategory, String sPrice, String sComment);
+    @Query("UPDATE income_table SET Income_date = :sIncomeDate, sub_category = :sSubCategory, price = :sPrice, comment = :sComment  WHERE ID = :sID")
+    void update(int sID, String sIncomeDate, String sSubCategory, String sPrice, String sComment);
 
     // Get all data query
     @Query("SELECT * FROM income_table")

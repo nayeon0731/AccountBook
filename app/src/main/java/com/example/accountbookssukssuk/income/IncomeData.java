@@ -16,9 +16,6 @@ public class IncomeData implements Serializable {
     @ColumnInfo(name = "Income_date")
     private String incomeDate;
 
-    @ColumnInfo(name = "main_category")
-    private String mainCategory;
-
     @ColumnInfo(name = "sub_category")
     private String subCategory;
 
@@ -30,9 +27,8 @@ public class IncomeData implements Serializable {
 
     // 정보를 한번에 저장해서 캡슐화
     // getter값이다.
-    public IncomeData(String incomeDate, String mainCategory, String subCategory, String price, String comment) {
+    public IncomeData(String incomeDate, String subCategory, String price, String comment) {
         this.incomeDate = incomeDate;
-        this.mainCategory = mainCategory;
         this.subCategory = subCategory;
         this.price = price;
         this.comment = comment;
@@ -55,10 +51,6 @@ public class IncomeData implements Serializable {
 
     public String getIncomeDate() {
         return incomeDate;
-    }
-
-    public String getMainCategory() {
-        return mainCategory;
     }
 
     public String getSubCategory() {
