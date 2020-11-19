@@ -35,6 +35,7 @@ import com.example.accountbookssukssuk.total.TotalData;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import static com.amitshekhar.utils.Constants.NULL;
@@ -106,29 +107,6 @@ public class ImportActivity extends Fragment implements DatePickerDialog.OnDateS
             }
         });
 
-        // 저장 버튼 누르면 저장
-        save_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String sComment = im_comment.getText().toString();
-                String sPrice = im_price.getText().toString();
-                String sCategory = array_text2.getText().toString();
-                String sDate = date_text.getText().toString();
-                // 내용정보와 가격정보를 받아오면
-                if (!sComment.equals("") & !sPrice.equals("")) {
-                    // main data 초기화
-                    IncomeData data = new IncomeData(sDate, sCategory, sPrice, sComment);
-                    // main data에 받아온 정보 저장하기
-                    income_database.incomeDao().insert(data);
-                    // 저장된 후 내용정보와 가격정보를 적는 EditText 빈칸으로 만들기
-                    im_comment.setText("");
-                    im_price.setText("");
-                    date_text.setText("날짜를 선택해주세요");
-                }
-
-            }
-        });
-
         DebugDB.getAddressLog();
 
         // 날짜선택
@@ -143,6 +121,29 @@ public class ImportActivity extends Fragment implements DatePickerDialog.OnDateS
             @Override
             public void onClick(View v) {
                 datePickerDialog.show();
+            }
+        });
+
+        // 저장 버튼 누르면 저장
+        save_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String sComment = im_comment.getText().toString();
+                String sPrice = im_price.getText().toString();
+                String sCategory = array_text2.getText().toString();
+                Date sDate = calendar.getTime();
+                // 내용정보와 가격정보를 받아오면
+                if (!sComment.equals("") & !sPrice.equals("")) {
+                    // main data 초기화
+                    IncomeData data = new IncomeData(sDate, sCategory, sPrice, sComment);
+                    // main data에 받아온 정보 저장하기
+                    income_database.incomeDao().insert(data);
+                    // 저장된 후 내용정보와 가격정보를 적는 EditText 빈칸으로 만들기
+                    im_comment.setText("");
+                    im_price.setText("");
+                    date_text.setText("날짜를 선택해주세요");
+                }
+
             }
         });
 

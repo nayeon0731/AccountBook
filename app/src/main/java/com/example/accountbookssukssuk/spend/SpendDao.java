@@ -7,6 +7,7 @@ import androidx.room.Query;
 
 import com.example.accountbookssukssuk.income.IncomeData;
 
+import java.util.Date;
 import java.util.List;
 
 import static androidx.room.OnConflictStrategy.REPLACE;
@@ -24,7 +25,7 @@ public interface SpendDao {
 
     // Update query
     @Query("UPDATE spend_table SET spend_date = :sSpendDate, main_category = :sMainCategory, sub_category = :sSubCategory, price = :sPrice, comment = :sComment  WHERE ID = :sID")
-    void update(int sID, String sSpendDate, String sMainCategory, String sSubCategory, String sPrice, String sComment);
+    void update(int sID, Date sSpendDate, String sMainCategory, String sSubCategory, String sPrice, String sComment);
 
     // Get all data query
     @Query("SELECT * FROM spend_table")

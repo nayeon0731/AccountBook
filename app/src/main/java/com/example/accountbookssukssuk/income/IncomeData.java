@@ -5,6 +5,7 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 import java.io.Serializable;
+import java.util.Date;
 
 @Entity(tableName = "income_table")
 public class IncomeData implements Serializable {
@@ -12,12 +13,15 @@ public class IncomeData implements Serializable {
     @PrimaryKey(autoGenerate = true)
     private int ID;
 
-    // text 컬럼 만들기
-    @ColumnInfo(name = "Income_date")
-    private String incomeDate;
+
 
     @ColumnInfo(name = "sub_category")
     private String subCategory;
+
+    // text 컬럼 만들기
+    @ColumnInfo(name = "Income_date")
+    private Date incomeDate;
+
 
     @ColumnInfo(name = "price")
     private String price;
@@ -27,7 +31,7 @@ public class IncomeData implements Serializable {
 
     // 정보를 한번에 저장해서 캡슐화
     // getter값이다.
-    public IncomeData(String incomeDate, String subCategory, String price, String comment) {
+    public IncomeData(Date incomeDate, String subCategory, String price, String comment) {
         this.incomeDate = incomeDate;
         this.subCategory = subCategory;
         this.price = price;
@@ -49,7 +53,7 @@ public class IncomeData implements Serializable {
         return ID;
     }
 
-    public String getIncomeDate() {
+    public Date getIncomeDate() {
         return incomeDate;
     }
 

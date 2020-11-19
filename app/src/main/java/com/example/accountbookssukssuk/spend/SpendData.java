@@ -5,6 +5,7 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 import java.io.Serializable;
+import java.util.Date;
 
 @Entity(tableName = "spend_table")
 public class SpendData implements Serializable {
@@ -14,7 +15,7 @@ public class SpendData implements Serializable {
 
     // text 컬럼 만들기
     @ColumnInfo(name = "spend_date")
-    private String spendDate;
+    private Date spendDate;
 
     @ColumnInfo(name = "main_category")
     private String mainCategory;
@@ -30,7 +31,7 @@ public class SpendData implements Serializable {
 
     // 정보를 한번에 저장해서 캡슐화
     // getter값이다.
-    public SpendData(String spendDate, String mainCategory, String subCategory, String price, String comment) {
+    public SpendData(Date spendDate, String mainCategory, String subCategory, String price, String comment) {
         this.spendDate = spendDate;
         this.mainCategory = mainCategory;
         this.subCategory = subCategory;
@@ -53,7 +54,7 @@ public class SpendData implements Serializable {
         return ID;
     }
 
-    public String getSpendDate() {
+    public Date getSpendDate() {
         return spendDate;
     }
 

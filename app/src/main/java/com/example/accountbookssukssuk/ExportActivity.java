@@ -32,6 +32,7 @@ import com.example.accountbookssukssuk.total.TotalData;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import static com.amitshekhar.utils.Constants.NULL;
@@ -143,7 +144,7 @@ public class ExportActivity extends Fragment implements DatePickerDialog.OnDateS
                 String sPrice = ex_price.getText().toString();
                 String sCategory = array_text2.getText().toString();
                 String sMain = array_text.getText().toString();
-                String sDate = date_text.getText().toString();
+                Date sDate = calendar.getTime();
                 // 내용정보와 가격정보를 받아오면
                 if (!sComment.equals("") & !sPrice.equals("")) {
                     // main data 초기화
