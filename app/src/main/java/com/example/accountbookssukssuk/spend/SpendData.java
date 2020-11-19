@@ -24,14 +24,14 @@ public class SpendData implements Serializable {
     private String subCategory;
 
     @ColumnInfo(name = "price")
-    private String price;
+    private int price;
 
     @ColumnInfo(name = "comment")
     private String comment;
 
     // 정보를 한번에 저장해서 캡슐화
     // getter값이다.
-    public SpendData(Date spendDate, String mainCategory, String subCategory, String price, String comment) {
+    public SpendData(Date spendDate, String mainCategory, String subCategory, int price, String comment) {
         this.spendDate = spendDate;
         this.mainCategory = mainCategory;
         this.subCategory = subCategory;
@@ -66,7 +66,7 @@ public class SpendData implements Serializable {
         return subCategory;
     }
 
-    public String getPrice() {
+    public int getPrice() {
         return price;
     }
 

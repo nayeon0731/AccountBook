@@ -7,7 +7,7 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.room.TypeConverters;
 
-@Database(entities = {IncomeData.class}, version = 1, exportSchema = false)
+@Database(entities = {IncomeData.class}, version = 2, exportSchema = false)
 @TypeConverters({Convert.class})
 public abstract class IncomeDB extends RoomDatabase {
 

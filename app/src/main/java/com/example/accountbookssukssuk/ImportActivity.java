@@ -130,12 +130,13 @@ public class ImportActivity extends Fragment implements DatePickerDialog.OnDateS
             public void onClick(View v) {
                 String sComment = im_comment.getText().toString();
                 String sPrice = im_price.getText().toString();
+                int iPrice = Integer.valueOf(sPrice);
                 String sCategory = array_text2.getText().toString();
                 Date sDate = calendar.getTime();
                 // 내용정보와 가격정보를 받아오면
                 if (!sComment.equals("") & !sPrice.equals("")) {
                     // main data 초기화
-                    IncomeData data = new IncomeData(sDate, sCategory, sPrice, sComment);
+                    IncomeData data = new IncomeData(sDate, sCategory, iPrice, sComment);
                     // main data에 받아온 정보 저장하기
                     income_database.incomeDao().insert(data);
                     // 저장된 후 내용정보와 가격정보를 적는 EditText 빈칸으로 만들기

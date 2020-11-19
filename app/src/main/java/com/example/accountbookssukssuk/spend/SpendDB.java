@@ -7,7 +7,7 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.room.TypeConverters;
 
-@Database(entities = {SpendData.class}, version = 1, exportSchema = false)
+@Database(entities = {SpendData.class}, version = 2, exportSchema = false)
 @TypeConverters({Convert.class})
 public abstract class SpendDB extends RoomDatabase {
 

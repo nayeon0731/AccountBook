@@ -24,14 +24,14 @@ public class IncomeData implements Serializable {
 
 
     @ColumnInfo(name = "price")
-    private String price;
+    private int price;
 
     @ColumnInfo(name = "comment")
     private String comment;
 
     // 정보를 한번에 저장해서 캡슐화
     // getter값이다.
-    public IncomeData(Date incomeDate, String subCategory, String price, String comment) {
+    public IncomeData(Date incomeDate, String subCategory, int price, String comment) {
         this.incomeDate = incomeDate;
         this.subCategory = subCategory;
         this.price = price;
@@ -61,7 +61,7 @@ public class IncomeData implements Serializable {
         return subCategory;
     }
 
-    public String getPrice() {
+    public int getPrice() {
         return price;
     }
 
