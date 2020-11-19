@@ -13,7 +13,7 @@ public class SpendData implements Serializable {
     @PrimaryKey(autoGenerate = true)
     private int ID;
 
-    // text 컬럼 만들기
+    // 컬럼 만들기
     @ColumnInfo(name = "spend_date")
     private Date spendDate;
 
